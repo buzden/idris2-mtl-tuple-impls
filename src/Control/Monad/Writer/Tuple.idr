@@ -12,8 +12,8 @@ export
 Monad m => Monoid l => Monoid r => MonadWriter l (WriterT (l, r) m) where
   writer (x, l) = writer (x, l, neutral)
   tell x        = tell (x, neutral)
-  pass          = MkWriterT . map (\((a, f), l, r) => (a, f l, r)) .: unWriterT
-  listen        = MkWriterT . map (\(x, l, r) => ((x, l), l, r)) .: unWriterT
+  pass wr       = MkWriterT $ \(ll, rr) => runWriterT wr <&> \((a, f), l, r) => (a, ll <+> f l, rr <+> r)
+  listen wr     = MkWriterT $ \(ll, rr) => runWriterT wr <&> \(x, l, r) => ((x, l), ll <+> l, rr <+> r)
 
 wrapFst : Functor m => WriterT r m a -> WriterT (l, r) m a
 wrapFst $ MkWriterT fw = MkWriterT $ \(x, y) => map (x,) <$> fw y
@@ -22,11 +22,11 @@ unwrapFst : Functor m => l -> WriterT (l, r) m a -> WriterT r m a
 unwrapFst x $ MkWriterT fw = MkWriterT $ \y => map snd <$> fw (x, y)
 
 export
-MonadWriter s (WriterT r m) => Monad m => MonadWriter s (WriterT (l, r) m) where
+MonadWriter s (WriterT r m) => Monoid r => Monad m => MonadWriter s (WriterT (l, r) m) where
   writer (x, l) = wrapFst $ writer (x, l)
   tell          = wrapFst . tell
-  pass  wr      = MkWriterT $ \(x, y) => map @{Compose} (x,) $ flip unWriterT y $ pass   $ unwrapFst x wr
-  listen wr     = MkWriterT $ \(x, y) => map @{Compose} (x,) $ flip unWriterT y $ listen $ unwrapFst x wr
+  pass  wr      = MkWriterT $ \(x, y) => map @{Compose} ((x,) . (y <+>)) $ runWriterT $ pass   $ unwrapFst x wr
+  listen wr     = MkWriterT $ \(x, y) => map @{Compose} ((x,) . (y <+>)) $ runWriterT $ listen $ unwrapFst x wr
 
 --- RWST ---
 
@@ -34,8 +34,8 @@ export
 Monad m => Monoid wl => Monoid wr => MonadWriter wl (RWST r (wl, wr) s m) where
   writer (x, l) = writer (x, l, neutral)
   tell x        = tell (x, neutral)
-  pass wr       = MkRWST $ (\x, y => x y <&> \((a, f), s, wl, wr) => (a, s, f wl, wr)) .: unRWST wr
-  listen wr     = MkRWST $ (\x, y => x y <&> \(a, s, wl, wr) => ((a, wl), s, wl, wr)) .: unRWST wr
+  pass wr       = MkRWST $ \r, s, (ll, rr) => runRWST r s wr <&> \((a, f), s', x, y) => (a, s', ll <+> f x, rr <+> y)
+  listen wr     = MkRWST $ \r, s, (ll, rr) => runRWST r s wr <&> \(a, s', x, y) => ((a, x), s', ll <+> x, rr <+> y)
 
 wrapFst' : Functor m => RWST r wr s m a -> RWST r (wl, wr) s m a
 wrapFst' $ MkRWST fw = MkRWST $ \r, s, (x, y) => map @{Compose} (x,) <$> fw r s y
@@ -44,8 +44,8 @@ unwrapFst' : Functor m => wl -> RWST r (wl, wr) s m a -> RWST r wr s m a
 unwrapFst' x $ MkRWST fw = MkRWST $ \r, s, y => map @{Compose} snd <$> fw r s (x, y)
 
 export
-MonadWriter v (RWST r wr s m) => Monad m => MonadWriter v (RWST r (wl, wr) s m) where
+MonadWriter v (RWST r wr s m) => Monoid wr => Monad m => MonadWriter v (RWST r (wl, wr) s m) where
   writer (x, l) = wrapFst' $ writer (x, l)
   tell          = wrapFst' . tell
-  pass  wr      = MkRWST $ \r, s, (x, y) => map @{Compose @{Compose}} (x,) $ unRWST (pass   $ unwrapFst' x wr) r s y
-  listen wr     = MkRWST $ \r, s, (x, y) => map @{Compose @{Compose}} (x,) $ unRWST (listen $ unwrapFst' x wr) r s y
+  pass  wr      = MkRWST $ \r, s, (x, y) => map @{Compose @{Compose}} ((x,) . (y <+>)) $ runRWST r s $ pass   $ unwrapFst' x wr
+  listen wr     = MkRWST $ \r, s, (x, y) => map @{Compose @{Compose}} ((x,) . (y <+>)) $ runRWST r s $ listen $ unwrapFst' x wr
