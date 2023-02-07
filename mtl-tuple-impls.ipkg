@@ -10,3 +10,4 @@ sourcedir = "src"
 
 modules = Control.Monad.Reader.Tuple
         , Control.Monad.State.Tuple
+        , Control.Monad.Writer.Tuple
