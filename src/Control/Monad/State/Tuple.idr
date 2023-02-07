@@ -1,7 +1,8 @@
 module Control.Monad.State.Tuple
 
-import public Control.Monad.State
-import public Control.Monad.RWS
+import Control.Monad.State.State
+import public Control.Monad.State.Interface
+import Control.Monad.RWS.CPS
 
 %default total
 
