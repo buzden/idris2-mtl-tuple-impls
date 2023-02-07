@@ -8,4 +8,5 @@ version = 0.1.0
 
 sourcedir = "src"
 
-modules = Control.Monad.State.Tuple
+modules = Control.Monad.Reader.Tuple
+        , Control.Monad.State.Tuple
