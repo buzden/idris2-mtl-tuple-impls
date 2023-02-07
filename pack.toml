@@ -1,8 +1,8 @@
 [install]
-whitelist = [ "coop-tests" ]
+whitelist = [ "mtl-tuple-impls-tests" ]
 
-[custom.all.coop]
+[custom.all.mtl-tuple-impls]
 type = "local"
 path = "."
-ipkg = "coop.ipkg"
+ipkg = "mtl-tuple-impls.ipkg"
 test = "tests/tests.ipkg"

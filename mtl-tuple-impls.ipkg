@@ -1,0 +1,11 @@
+package mtl-tuple-impls
+
+authors = "Denis Buzdalov"
+license = "Apache-2.0"
+brief = "Tuple instances for the standard MTL interfaces"
+
+version = 0.1.0
+
+sourcedir = "src"
+
+modules = Control.Monad.State.Tuple
