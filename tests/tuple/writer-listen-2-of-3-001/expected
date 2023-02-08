@@ -1,0 +1,32 @@
+rec 4 : before recursive call and listening
+rec 3 : before recursive call and listening
+rec 2 : before recursive call and listening
+rec 1 : before recursive call and listening
+rec 1 : current log: []
+rec 2 : current log: [0]
+rec 3 : current log: [1, 0]
+rec 4 : current log: [2, 1, 0]
+result: "done"
+journal: ([3, 2, 1, 0], (["3", ".", "2", ".", "1", ".", "0", ".", "0'", "1'", "2'", "3'"], []))
+----
+rec 4 : before recursive call and listening
+rec 3 : before recursive call and listening
+rec 2 : before recursive call and listening
+rec 1 : before recursive call and listening
+rec 1 : current log: []
+rec 2 : current log: [0]
+rec 3 : current log: [1, 0]
+rec 4 : current log: [2, 1, 0]
+result: "done"
+journal: (["3", ".", "2", ".", "1", ".", "0", ".", "0'", "1'", "2'", "3'"], ([3, 2, 1, 0], []))
+----
+rec 4 : before recursive call and listening
+rec 3 : before recursive call and listening
+rec 2 : before recursive call and listening
+rec 1 : before recursive call and listening
+rec 1 : current log: []
+rec 2 : current log: [0]
+rec 3 : current log: [1, 0]
+rec 4 : current log: [2, 1, 0]
+result: "done"
+journal: ([], (["3", ".", "2", ".", "1", ".", "0", ".", "0'", "1'", "2'", "3'"], [3, 2, 1, 0]))
