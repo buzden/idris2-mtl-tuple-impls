@@ -10,5 +10,6 @@ RunScriptArg where
 main : IO ()
 main = goldenRunner
   [ "Documentation" `atDir` "docs"
-  , "Tuple implementations" `atDir` "tuple"
+  , "Regular transformers (ReaderT, WriterT, StateT)" `atDir` "regular-t"
+  , "RWST transformer" `atDir` "rws-t"
   ]

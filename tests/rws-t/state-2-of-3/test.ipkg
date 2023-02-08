@@ -1,0 +1,9 @@
+package test
+
+authors = "Denis Buzdalov"
+
+main = Main
+
+depends = mtl-tuple-impls
+
+executable = "test"
