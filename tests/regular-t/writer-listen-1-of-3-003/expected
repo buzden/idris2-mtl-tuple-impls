@@ -1,0 +1,143 @@
+rec 4 : before recursive call and listening
+rec 3 : before recursive call and listening
+rec 2 : before recursive call and listening
+rec 1 : before recursive call and listening
+rec 1 : current log1: []
+rec 1 : current log2: []
+rec 1 : before recursive call and listening
+rec 1 : current log1: []
+rec 1 : current log2: []
+rec 2 : current log1: [0]
+rec 2 : current log2: [0]
+rec 2 : before recursive call and listening
+rec 1 : before recursive call and listening
+rec 1 : current log1: []
+rec 1 : current log2: []
+rec 1 : before recursive call and listening
+rec 1 : current log1: []
+rec 1 : current log2: []
+rec 2 : current log1: [0]
+rec 2 : current log2: [0]
+rec 3 : current log1: [1, 0, 0]
+rec 3 : current log2: [1, 0, 0]
+rec 3 : before recursive call and listening
+rec 2 : before recursive call and listening
+rec 1 : before recursive call and listening
+rec 1 : current log1: []
+rec 1 : current log2: []
+rec 1 : before recursive call and listening
+rec 1 : current log1: []
+rec 1 : current log2: []
+rec 2 : current log1: [0]
+rec 2 : current log2: [0]
+rec 2 : before recursive call and listening
+rec 1 : before recursive call and listening
+rec 1 : current log1: []
+rec 1 : current log2: []
+rec 1 : before recursive call and listening
+rec 1 : current log1: []
+rec 1 : current log2: []
+rec 2 : current log1: [0]
+rec 2 : current log2: [0]
+rec 3 : current log1: [1, 0, 0]
+rec 3 : current log2: [1, 0, 0]
+rec 4 : current log1: [2, 1, 0, 0, 1, 0, 0]
+rec 4 : current log2: [2, 1, 0, 0, 1, 0, 0]
+result: "done"
+journal: ([3, 2, 1, 0, 0, 1, 0, 0, 2, 1, 0, 0, 1, 0, 0], ([], []))
+----
+rec 4 : before recursive call and listening
+rec 3 : before recursive call and listening
+rec 2 : before recursive call and listening
+rec 1 : before recursive call and listening
+rec 1 : current log1: []
+rec 1 : current log2: []
+rec 1 : before recursive call and listening
+rec 1 : current log1: []
+rec 1 : current log2: []
+rec 2 : current log1: [0]
+rec 2 : current log2: [0]
+rec 2 : before recursive call and listening
+rec 1 : before recursive call and listening
+rec 1 : current log1: []
+rec 1 : current log2: []
+rec 1 : before recursive call and listening
+rec 1 : current log1: []
+rec 1 : current log2: []
+rec 2 : current log1: [0]
+rec 2 : current log2: [0]
+rec 3 : current log1: [1, 0, 0]
+rec 3 : current log2: [1, 0, 0]
+rec 3 : before recursive call and listening
+rec 2 : before recursive call and listening
+rec 1 : before recursive call and listening
+rec 1 : current log1: []
+rec 1 : current log2: []
+rec 1 : before recursive call and listening
+rec 1 : current log1: []
+rec 1 : current log2: []
+rec 2 : current log1: [0]
+rec 2 : current log2: [0]
+rec 2 : before recursive call and listening
+rec 1 : before recursive call and listening
+rec 1 : current log1: []
+rec 1 : current log2: []
+rec 1 : before recursive call and listening
+rec 1 : current log1: []
+rec 1 : current log2: []
+rec 2 : current log1: [0]
+rec 2 : current log2: [0]
+rec 3 : current log1: [1, 0, 0]
+rec 3 : current log2: [1, 0, 0]
+rec 4 : current log1: [2, 1, 0, 0, 1, 0, 0]
+rec 4 : current log2: [2, 1, 0, 0, 1, 0, 0]
+result: "done"
+journal: ([], ([3, 2, 1, 0, 0, 1, 0, 0, 2, 1, 0, 0, 1, 0, 0], []))
+----
+rec 4 : before recursive call and listening
+rec 3 : before recursive call and listening
+rec 2 : before recursive call and listening
+rec 1 : before recursive call and listening
+rec 1 : current log1: []
+rec 1 : current log2: []
+rec 1 : before recursive call and listening
+rec 1 : current log1: []
+rec 1 : current log2: []
+rec 2 : current log1: [0]
+rec 2 : current log2: [0]
+rec 2 : before recursive call and listening
+rec 1 : before recursive call and listening
+rec 1 : current log1: []
+rec 1 : current log2: []
+rec 1 : before recursive call and listening
+rec 1 : current log1: []
+rec 1 : current log2: []
+rec 2 : current log1: [0]
+rec 2 : current log2: [0]
+rec 3 : current log1: [1, 0, 0]
+rec 3 : current log2: [1, 0, 0]
+rec 3 : before recursive call and listening
+rec 2 : before recursive call and listening
+rec 1 : before recursive call and listening
+rec 1 : current log1: []
+rec 1 : current log2: []
+rec 1 : before recursive call and listening
+rec 1 : current log1: []
+rec 1 : current log2: []
+rec 2 : current log1: [0]
+rec 2 : current log2: [0]
+rec 2 : before recursive call and listening
+rec 1 : before recursive call and listening
+rec 1 : current log1: []
+rec 1 : current log2: []
+rec 1 : before recursive call and listening
+rec 1 : current log1: []
+rec 1 : current log2: []
+rec 2 : current log1: [0]
+rec 2 : current log2: [0]
+rec 3 : current log1: [1, 0, 0]
+rec 3 : current log2: [1, 0, 0]
+rec 4 : current log1: [2, 1, 0, 0, 1, 0, 0]
+rec 4 : current log2: [2, 1, 0, 0, 1, 0, 0]
+result: "done"
+journal: ([], ([], [3, 2, 1, 0, 0, 1, 0, 0, 2, 1, 0, 0, 1, 0, 0]))
