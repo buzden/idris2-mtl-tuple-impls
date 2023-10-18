@@ -1,6 +1,3 @@
-[install]
-whitelist = [ "mtl-tuple-impls-tests" ]
-
 [custom.all.mtl-tuple-impls]
 type = "local"
 path = "."
