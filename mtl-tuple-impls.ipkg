@@ -7,6 +7,7 @@ brief = "Tuple instances for the standard MTL interfaces"
 version = 0.1.0
 
 sourcedir = "src"
+builddir = ".build"
 
 modules = Control.Monad.Reader.Tuple
         , Control.Monad.State.Tuple
