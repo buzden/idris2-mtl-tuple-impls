@@ -47,5 +47,6 @@ export
 MonadWriter v (RWST r wr s m) => Monoid wl => Monoid wr => Monad m => MonadWriter v (RWST r (wl, wr) s m) where
   writer (x, l) = wrapFst' $ writer (x, l)
   tell          = wrapFst' . tell
-  pass  wr      = MkRWST $ \r, s, (x, y) => runRWST r s (pass $ unwrapFst' wr <&> \((a, f), l) => ((a, l), f)) <&> \((a, wl), s, wr) => (a, s, x <+> wl, y <+> wr)
+  pass  wr      = MkRWST $ \r, s, (x, y) => runRWST r s (pass $ unwrapFst' wr <&> \((a, f), l) => ((a, l), f)) <&>
+                    \((a, wl), s, wr) => (a, s, x <+> wl, y <+> wr)
   listen wr     = MkRWST $ \r, s, (x, y) => runRWST r s (listen $ unwrapFst' wr) <&> \(((a, wl), v), s, wr) => ((a, v), s, x <+> wl, y <+> wr)
